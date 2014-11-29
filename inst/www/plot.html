@@ -10,6 +10,7 @@
     <script>
     //init this script when the page has loaded
    //call R function: stocks::smoothplot(ticker=ticker)
+    $(document).ready(function(){
     $("#submitbutton").click(function(){
         var ticker = $("#ticker").val();    
         var req = $("#plotdiv").rplot("smoothplot", {
@@ -22,7 +23,8 @@
             alert("R returned an error: " + req.responseText); 
         });
     });
-
+  });
+    
     </script>
     
     <style>
