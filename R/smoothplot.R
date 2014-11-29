@@ -10,10 +10,10 @@
 
 smoothplot <- function (ticker = "GOOG", from = "2013-01-01", to = Sys.time()) 
 {
-  library(stocks)
+#  library(stocks)
   
   mydata <- yahoodata(ticker, from, to)
   
-  library(ggplot2)
+#  library(ggplot2)
   qplot(Date, Close, data = mydata, geom = c("line", "smooth"))
 }
