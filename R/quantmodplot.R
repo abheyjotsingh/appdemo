@@ -8,10 +8,10 @@
 
 #library(quantmod)
 
-quantmodplot <- function (tickler = "GSPC") 
+quantmodplot <- function (ticker = "GSPC") 
 {
 
-  getSymbols(paste("^",tickler,sep=""))
-  x <- get(tickler)
+  getSymbols(paste("^",ticker,sep=""))
+  x <- get(ticker)
   chartSeries(x,subset="2014",theme="white")
 }
