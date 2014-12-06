@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Plot</title>
+    
+    <!-- Include order: first jquery, then opencpu.js, and then your code -->
+    <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
+
+    <script>
+    //init this script when the page has loaded
+   //call R function: stocks::smoothplot(ticker=ticker)
+    $(document).ready(function(){
+    $("#submitbutton").click(function(){
+        var ticker = $("#ticker").val();    
+        var req = $("#plotdiv").rplot("quantmodplot", {
+            ticker : ticker
+        });
+        
+        //optional
+        req.fail(function(){
+            alert("R returned an error: " + req.responseText); 
+        });
+    });
+  });
+    
+    </script>
+    
+    <style>
+      #plotdiv {
+    height: 400px;
+    border: solid gray 1px;
+      }
+    </style>
+    
+  </head>
+    
+  <body>
+    <h1>The Plottig Widget</h1>
+
+    <b>Ticker</b> <input type="text" value="GOOG" id="ticker">
+
+    <button id="submitbutton" type="button">Submit to server!</button> <br><br>
+
+    <div id="plotdiv"></div>    
+
+
+  <!-- some text, not part of the app -->
+  <p>This is a demo of the <code>rplot</code> function in the <a href="http://public.opencpu.org/jslib.html">opencpu.js</a> library. It calls the R function <a href="http://public.opencpu.org/ocpu/library/stocks/R/smoothplot">smoothplot</a> in the R package <a href="http://public.opencpu.org/ocpu/library/stocks/R/">stocks</a>.</p>
+    
+  </body>
+</html>
