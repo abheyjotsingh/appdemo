@@ -12,6 +12,6 @@ quantmodplot <- function (ticker = "GSPC")
 {
 
   getSymbols(paste("^",ticker,sep=""))
-  x <- get(ticker)
-  chartSeries(x,subset="2014",theme="white")
+#  x <- get(ticker)
+#  chartSeries(x,subset="2014",theme="white")
 }
